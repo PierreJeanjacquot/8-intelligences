@@ -3,13 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { useQuestionnaire } from "@/store/store";
 import { codeToColor, codeToIcon } from "@/utils/icons";
-import { answeredQuestionsCount, getResults } from "@/utils/utils";
+import { getResults } from "@/utils/utils";
 import { ResponsiveBar as BarChart } from "@nivo/bar";
 import Link from "next/link";
 
 export default function Result() {
   const { answers } = useQuestionnaire();
-  const answeredCount = answeredQuestionsCount(answers);
   const results = getResults(answers).map((r) => ({
     ...r,
     icon: codeToIcon(r.code),
