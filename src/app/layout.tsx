@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,20 @@ export default function RootLayout({
             {children}
           </main>
           <footer className="flex flex-wrap items-center justify-center max-w-full">
-            <div>la Fête de la science & Arts&Métiers</div>
+            <div>
+              <a
+                href="https://artsetmetiers.fr"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/logo-AM-trans-322x84.png"
+                  alt="Arts et Métiers"
+                  width={322 / 2}
+                  height={84 / 2}
+                />
+              </a>
+            </div>
           </footer>
         </div>
       </body>
