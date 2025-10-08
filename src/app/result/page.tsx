@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { useQuestionnaire } from "@/store/store";
 import { codeToColor, codeToIcon } from "@/utils/icons";
-import { getResults } from "@/utils/utils";
+import { questionnaire } from "@/utils/questionnaire";
+import { answeredQuestionsCount, getResults } from "@/utils/utils";
 import { ResponsiveBar as BarChart } from "@nivo/bar";
 import Link from "next/link";
 
@@ -13,6 +14,30 @@ export default function Result() {
     ...r,
     icon: codeToIcon(r.code),
   }));
+  const answeredCount = answeredQuestionsCount(answers);
+  const questionCount = questionnaire.length;
+
+  if (answeredCount < questionCount) {
+    return (
+      <div className="text-center">
+        <p className="mb-4">
+          Tu n&apos;as pas encore répondu au questionnaire.
+        </p>
+        <div className="mb-8 text-center">
+          <Link href="/questionnaire">
+            <Button>Répondre au questionnaire</Button>
+          </Link>
+        </div>
+        <div className="mb-8 text-center">
+          <Link href="/more">
+            <Button variant={"secondary"}>
+              En savoir plus sur les 8 intelligences
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="">
@@ -63,7 +88,7 @@ export default function Result() {
 
       <div className="mb-8 text-center">
         <Link href="/questionnaire">
-          <Button>Retour au questionnaire</Button>
+          <Button variant={"secondary"}>Retour au questionnaire</Button>
         </Link>
       </div>
     </div>
