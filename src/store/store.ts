@@ -1,10 +1,10 @@
 import { IntelligenceCode } from "@/types/types";
 import { create } from "zustand";
 
-type SurveyAnswer = Record<IntelligenceCode, boolean | undefined>;
+type Answer = Record<IntelligenceCode, boolean | undefined>;
 
-interface SurveyState {
-  answers: SurveyAnswer[];
+interface QuestionnaireState {
+  answers: Answer[];
   clearAnswers: () => void;
   setAnswer: (
     question: number,
@@ -13,7 +13,7 @@ interface SurveyState {
   ) => void;
 }
 
-export const useSurvey = create<SurveyState>()((set) => ({
+export const useQuestionnaire = create<QuestionnaireState>()((set) => ({
   answers: [
     {
       A: true,

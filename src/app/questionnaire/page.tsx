@@ -10,13 +10,13 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { useSurvey } from "@/store/store";
+import { useQuestionnaire } from "@/store/store";
 import { IntelligenceCode } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { selectedChoicesCount } from "../../utils/utils";
 
-const survey: {
+const questionnaire: {
   question: string;
   options: { label: string; value: IntelligenceCode }[];
 }[] = [
@@ -130,12 +130,12 @@ function QuestionCard({
   );
 }
 
-export default function Survey() {
+export default function Questionnaire() {
   const canScrollNext = useRef(false);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-  const { setAnswer, answers } = useSurvey();
+  const { setAnswer, answers } = useQuestionnaire();
 
   useEffect(() => {
     if (!api) {
@@ -186,7 +186,7 @@ export default function Survey() {
           </div>
         )}
         <CarouselContent className="m-0">
-          {survey.map((item, index) => (
+          {questionnaire.map((item, index) => (
             <CarouselItem key={index} className="p-0">
               <div className="w-full">
                 <QuestionCard

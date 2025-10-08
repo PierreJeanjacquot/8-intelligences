@@ -1,14 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useSurvey } from "@/store/store";
+import { useQuestionnaire } from "@/store/store";
 import { codeToColor, codeToIcon } from "@/utils/icons";
 import { answeredQuestionsCount, getResults } from "@/utils/utils";
 import { ResponsiveBar as BarChart } from "@nivo/bar";
 import Link from "next/link";
 
 export default function Result() {
-  const { answers } = useSurvey();
+  const { answers } = useQuestionnaire();
   const answeredCount = answeredQuestionsCount(answers);
   const results = getResults(answers).map((r) => ({
     ...r,
@@ -57,7 +57,7 @@ export default function Result() {
       </div>
 
       <div className="mb-8 text-center">
-        <Link href="/survey">
+        <Link href="/questionnaire">
           <Button>Retour au questionnaire</Button>
         </Link>
       </div>
