@@ -1,0 +1,220 @@
+import { IntelligenceCode } from "@/types/types";
+
+export const questionnaire: {
+  question: string;
+  options: { label: string; value: IntelligenceCode }[];
+}[] = [
+  {
+    question: "Quand je suis libre, j'aime surtout…",
+    options: [
+      { label: "Faire des expériences, résoudre des casse-têtes", value: "A" },
+      { label: "Lire, écrire, parler, écouter des histoires", value: "B" },
+      { label: "Dessiner, bricoler, imaginer des espaces", value: "C" },
+      { label: "Bouger, danser, jouer avec mon corps", value: "D" },
+      {
+        label: "Écouter de la musique, chanter, jouer d'un instrument",
+        value: "E",
+      },
+      { label: "Être avec les autres, discuter, aider", value: "F" },
+      { label: "Être seul·e pour réfléchir ou rêver", value: "G" },
+      { label: "Me promener dehors, observer la nature", value: "H" },
+    ],
+  },
+  {
+    question: "À l'école, je préfère…",
+    options: [
+      { label: "Les maths, les sciences, les problèmes", value: "A" },
+      { label: "Le français, l'histoire, les exposés", value: "B" },
+      { label: "L'art plastique, la géométrie", value: "C" },
+      { label: "L'EPS, le théâtre, les travaux manuels", value: "D" },
+      { label: "La musique, la poésie, les sons", value: "E" },
+      { label: "Les projets de groupe, les débats", value: "F" },
+      { label: "Les journaux de bord, les réflexions perso", value: "G" },
+      { label: "Les sorties nature, les expériences concrètes", value: "H" },
+    ],
+  },
+  {
+    question: "On dit souvent de moi que…",
+    options: [
+      { label: "Je suis logique et organisé·e", value: "A" },
+      { label: "Je parle bien ou j'écris facilement", value: "B" },
+      { label: "J'ai une bonne mémoire visuelle", value: "C" },
+      { label: "Je suis agile ou doué·e en sport", value: "D" },
+      { label: "J'ai l'oreille musicale", value: "E" },
+      { label: "Je suis sociable et j'aide les autres", value: "F" },
+      { label: "Je me comprends bien moi-même", value: "G" },
+      { label: "J'adore les animaux ou les plantes", value: "H" },
+    ],
+  },
+  {
+    question: "Si je devais participer à un concours, je choisirais…",
+    options: [
+      { label: "Un quiz de logique ou un défi scientifique", value: "A" },
+      { label: "Un concours d'éloquence ou d'écriture", value: "B" },
+      { label: "Un concours de dessin ou de maquettes", value: "C" },
+      { label: "Un parcours sportif ou un spectacle", value: "D" },
+      { label: "Un blind test ou un concours de chant", value: "E" },
+      { label: "Un projet collectif ou une simulation", value: "F" },
+      { label: "Un concours de réflexion personnelle", value: "G" },
+      { label: "Une exposition sur les insectes ou les plantes", value: "H" },
+    ],
+  },
+  {
+    question: "J'apprends mieux quand…",
+    options: [
+      { label: "Je comprends les règles et je peux réfléchir", value: "A" },
+      { label: "Je lis ou j'explique à quelqu'un", value: "B" },
+      { label: "Je vois des images ou je fais des schémas", value: "C" },
+      { label: "Je fais les choses avec mon corps", value: "D" },
+      { label: "Je chante, je récite avec un rythme", value: "E" },
+      { label: "Je travaille avec d'autres ou j'en parle", value: "F" },
+      { label: "Je fais le lien avec ma vie ou mes émotions", value: "G" },
+      { label: "Je touche, observe, explore le réel", value: "H" },
+    ],
+  },
+  {
+    question: "Si je devais inventer quelque chose, ce serait :",
+    options: [
+      { label: "Une machine ou une formule utile", value: "A" },
+      { label: "Une histoire ou un nouveau mot", value: "B" },
+      { label: "Un objet design ou un plan d'espace", value: "C" },
+      { label: "Une nouvelle chorégraphie ou un outil pratique", value: "D" },
+      { label: "Une chanson ou un son bizarre", value: "E" },
+      { label: "Une activité où chacun a un rôle", value: "F" },
+      { label: "Un journal intime illustré", value: "G" },
+      { label: "Un jardin ou une expérience avec des animaux", value: "H" },
+    ],
+  },
+  {
+    question: "En groupe, je suis celui/celle qui…",
+    options: [
+      { label: "Organise la tâche et structure les étapes", value: "A" },
+      { label: "Reformule ce que tout le monde dit", value: "B" },
+      { label: "Dessine ou imagine la présentation", value: "C" },
+      { label: "Fait les manipulations ou déplace les objets", value: "D" },
+      { label: "Trouve la musique ou l'ambiance sonore", value: "E" },
+      { label: "Crée la cohésion, motive les autres", value: "F" },
+      { label: "Observe les tensions et reste discret·e", value: "G" },
+      {
+        label: "Suggère des sorties dehors ou des exemples concrets",
+        value: "H",
+      },
+    ],
+  },
+  {
+    question: "Quand je regarde un film, je remarque surtout…",
+    options: [
+      { label: "Le scénario et les retournements logiques", value: "A" },
+      { label: "Les dialogues et la narration", value: "B" },
+      { label: "L'esthétique et les décors", value: "C" },
+      { label: "Les mouvements des corps et les actions", value: "D" },
+      { label: "La musique et les sons", value: "E" },
+      { label: "Les relations entre les personnages", value: "F" },
+      { label: "L'évolution intérieure du héros", value: "G" },
+      { label: "Les environnements naturels", value: "H" },
+    ],
+  },
+  {
+    question: "Quand je suis en difficulté…",
+    options: [
+      { label: "J'analyse la situation calmement", value: "A" },
+      { label: "J'en parle ou j'écris ce que je ressens", value: "B" },
+      { label: "Je dessine, je schématise ou j'observe", value: "C" },
+      { label: "Je me dépense ou je bouge pour me calmer", value: "D" },
+      { label: "J'écoute de la musique ou je chante", value: "E" },
+      { label: "Je demande de l'aide à quelqu'un", value: "F" },
+      { label: "Je réfléchis seul·e en silence", value: "G" },
+      { label: "Je vais dehors ou je m'occupe d'un animal", value: "H" },
+    ],
+  },
+  {
+    question: "Ce qui me vient naturellement, c'est…",
+    options: [
+      { label: "Trouver la solution à un problème", value: "A" },
+      { label: "Raconter une blague ou une anecdote", value: "B" },
+      { label: "Visualiser des objets ou des plans dans ma tête", value: "C" },
+      { label: "Imiter, construire, expérimenter avec mes mains", value: "D" },
+      { label: "Reproduire une mélodie ou faire du rythme", value: "E" },
+      { label: "Lire les émotions des autres", value: "F" },
+      { label: "Comprendre ce que je ressens moi-même", value: "G" },
+      { label: "Identifier une plante ou un oiseau", value: "H" },
+    ],
+  },
+  {
+    question: "On me demande souvent de…",
+    options: [
+      { label: "Résoudre un problème ou faire un calcul", value: "A" },
+      { label: "Lire à voix haute ou écrire un message", value: "B" },
+      { label: "Dessiner une carte, un plan ou un logo", value: "C" },
+      {
+        label: "Aider à porter, construire ou monter quelque chose",
+        value: "D",
+      },
+      {
+        label: "Trouver une chanson ou faire du bruit avec les objets",
+        value: "E",
+      },
+      { label: "Médiatiser une dispute ou écouter un ami", value: "F" },
+      {
+        label: "Conseiller ou encourager quelqu'un à se comprendre",
+        value: "G",
+      },
+      { label: "Classer des objets, nettoyer, ranger la nature", value: "H" },
+    ],
+  },
+  {
+    question: "Si je devais apprendre un nouveau sujet…",
+    options: [
+      { label: "Je veux en comprendre les règles et les causes", value: "A" },
+      { label: "Je veux lire des textes ou les expliquer", value: "B" },
+      { label: "Je veux voir des images ou des vidéos", value: "C" },
+      { label: "Je veux manipuler, tester ou m'exercer", value: "D" },
+      { label: "Je veux l'écouter ou le chanter", value: "E" },
+      { label: "Je veux l'apprendre à plusieurs", value: "F" },
+      { label: "Je veux me l'approprier dans mon vécu", value: "G" },
+      { label: "Je veux observer des éléments du réel", value: "H" },
+    ],
+  },
+  {
+    question: "À la maison, j'aime…",
+    options: [
+      {
+        label: "Faire des puzzles ou jouer à des jeux de stratégie",
+        value: "A",
+      },
+      { label: "Écrire, raconter, tenir un journal", value: "B" },
+      { label: "Créer des objets ou réorganiser ma chambre", value: "C" },
+      { label: "Bouger, danser, jouer avec des objets", value: "D" },
+      { label: "Écouter de la musique ou inventer des sons", value: "E" },
+      { label: "Appeler mes amis ou faire des jeux de groupe", value: "F" },
+      { label: "Me poser, réfléchir, méditer", value: "G" },
+      { label: "Observer mes plantes ou sortir avec mon chien", value: "H" },
+    ],
+  },
+  {
+    question: "Ce que je préfère dans une exposition ou un musée :",
+    options: [
+      { label: "Les machines et explications scientifiques", value: "A" },
+      { label: "Les textes et documents anciens", value: "B" },
+      { label: "Les œuvres visuelles et les vidéos immersives", value: "C" },
+      { label: "Les dispositifs interactifs à manipuler", value: "D" },
+      { label: "Les sons, instruments ou installations musicales", value: "E" },
+      { label: "Les espaces partagés ou animés", value: "F" },
+      { label: "Les témoignages personnels", value: "G" },
+      { label: "Les animaux, fossiles ou plantes exposés", value: "H" },
+    ],
+  },
+  {
+    question: "Mon environnement idéal pour apprendre, c'est :",
+    options: [
+      { label: "Calme, structuré, logique", value: "A" },
+      { label: "Avec un bon livre et un cahier", value: "B" },
+      { label: "Coloré, inspirant, visuel", value: "C" },
+      { label: "Spacieux, avec des objets à manipuler", value: "D" },
+      { label: "Musical ou rythmé", value: "E" },
+      { label: "En groupe, avec du dialogue", value: "F" },
+      { label: "Isolé et confortable", value: "G" },
+      { label: "En plein air ou proche de la nature", value: "H" },
+    ],
+  },
+];

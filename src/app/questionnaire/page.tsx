@@ -15,69 +15,7 @@ import { IntelligenceCode } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { selectedChoicesCount } from "../../utils/utils";
-
-const questionnaire: {
-  question: string;
-  options: { label: string; value: IntelligenceCode }[];
-}[] = [
-  {
-    question: "Quand je suis libre, j’aime surtout…",
-    options: [
-      {
-        label: "Faire des expériences, résoudre des casse-têtes",
-        value: "A",
-      },
-      { label: "Lire, écrire, parler, écouter des histoires", value: "B" },
-      { label: "Dessiner, bricoler, imaginer des espaces", value: "C" },
-      { label: "Bouger, danser, jouer avec mon corps", value: "D" },
-      {
-        label: "Écouter de la musique, chanter, jouer d’un instrument",
-        value: "E",
-      },
-      { label: "Être avec les autres, discuter, aider", value: "F" },
-      { label: "Être seul·e pour réfléchir ou rêver", value: "G" },
-      { label: "Me promener dehors, observer la nature", value: "H" },
-    ],
-  },
-  {
-    question: "Quand je suis libre, j’aime surtout…",
-    options: [
-      {
-        label: "Faire des expériences, résoudre des casse-têtes",
-        value: "A",
-      },
-      { label: "Lire, écrire, parler, écouter des histoires", value: "B" },
-      { label: "Dessiner, bricoler, imaginer des espaces", value: "C" },
-      { label: "Bouger, danser, jouer avec mon corps", value: "D" },
-      {
-        label: "Écouter de la musique, chanter, jouer d’un instrument",
-        value: "E",
-      },
-      { label: "Être avec les autres, discuter, aider", value: "F" },
-      { label: "Être seul·e pour réfléchir ou rêver", value: "G" },
-      { label: "Me promener dehors, observer la nature", value: "H" },
-    ],
-  },
-  {
-    question: "Quand je suis libre, j’aime surtout…",
-    options: [
-      {
-        label: "Faire des expériences, résoudre des casse-têtes",
-        value: "A",
-      },
-      { label: "Lire, écrire, parler, écouter des histoires", value: "B" },
-      { label: "Dessiner, bricoler, imaginer des espaces", value: "C" },
-      { label: "Bouger, danser, jouer avec mon corps", value: "D" },
-      {
-        label: "Écouter de la musique, chanter, jouer d’un instrument",
-        value: "E",
-      },
-      { label: "Être avec les autres, discuter, aider", value: "F" },
-      { label: "Être seul·e pour réfléchir ou rêver", value: "G" },
-      { label: "Me promener dehors, observer la nature", value: "H" },
-    ],
-  },
-];
+import { questionnaire } from "@/utils/questionnaire";
 
 function QuestionCard({
   id,
