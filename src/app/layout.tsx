@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export default function RootLayout({
       >
         <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-dvh gap-4">
           <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b shadow-sm p-4">
-            <h1 className="text-2xl font-bold text-center">
-              Les 8 intelligences
-            </h1>
+            <Link href="/">
+              <h1 className="text-2xl font-bold text-center">
+                Les 8 intelligences
+              </h1>
+            </Link>
           </header>
           <main className="w-sm max-w-dvw sm:max-w-sm m-auto overflow-hidden flex items-center justify-center p-4">
             {children}
