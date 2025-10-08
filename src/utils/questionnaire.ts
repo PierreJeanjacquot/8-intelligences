@@ -73,7 +73,7 @@ export const questionnaire: {
     ],
   },
   {
-    question: "Si je devais inventer quelque chose, ce serait :",
+    question: "Si je devais inventer quelque chose, ce serait…",
     options: [
       { answer: "Une machine ou une formule utile", code: "A" },
       { answer: "Une histoire ou un nouveau mot", code: "B" },
@@ -192,7 +192,7 @@ export const questionnaire: {
     ],
   },
   {
-    question: "Ce que je préfère dans une exposition ou un musée :",
+    question: "Ce que je préfère dans une exposition ou un musée, c'est…",
     options: [
       { answer: "Les machines et explications scientifiques", code: "A" },
       { answer: "Les textes et documents anciens", code: "B" },
@@ -205,7 +205,7 @@ export const questionnaire: {
     ],
   },
   {
-    question: "Mon environnement idéal pour apprendre, c'est :",
+    question: "Mon environnement idéal pour apprendre, c'est…",
     options: [
       { answer: "Calme, structuré, logique", code: "A" },
       { answer: "Avec un bon livre et un cahier", code: "B" },
