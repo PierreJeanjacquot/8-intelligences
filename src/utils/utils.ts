@@ -25,7 +25,7 @@ const intelligenceCodeMap: Record<
   },
   B: {
     label: "Linguistique",
-    description: "Tu es à l’aise avec les mots et les idées.",
+    description: "Tu es à l'aise avec les mots et les idées.",
   },
   C: {
     label: "Visuo-spatiale",
