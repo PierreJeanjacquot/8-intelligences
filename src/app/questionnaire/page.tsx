@@ -67,7 +67,7 @@ function QuestionCard({
             hasError ? "text-red-500" : ""
           }`}
         >
-          Choisissez une à trois réponses
+          Choisis une à trois réponses
         </p>
       </div>
     </div>
@@ -149,7 +149,7 @@ export default function Questionnaire() {
           <CarouselItem className="p-0">
             <div className="flex flex-col items-center justify-center text-center min-h-[300px]">
               <div className="text-xl mb-4">
-                Vous avez terminé le questionnaire !
+                Tu as terminé le questionnaire !
               </div>
               <Link href="/result">
                 <Button className="mt-4">Voir mes résultats</Button>
