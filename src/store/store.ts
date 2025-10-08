@@ -14,38 +14,7 @@ interface QuestionnaireState {
 }
 
 export const useQuestionnaire = create<QuestionnaireState>()((set) => ({
-  answers: [
-    {
-      A: true,
-      B: undefined,
-      C: undefined,
-      D: undefined,
-      E: undefined,
-      F: undefined,
-      G: undefined,
-      H: undefined,
-    },
-    {
-      A: undefined,
-      B: true,
-      C: undefined,
-      D: undefined,
-      E: undefined,
-      F: undefined,
-      G: undefined,
-      H: undefined,
-    },
-    {
-      A: undefined,
-      B: undefined,
-      C: true,
-      D: undefined,
-      E: undefined,
-      F: undefined,
-      G: undefined,
-      H: undefined,
-    },
-  ],
+  answers: [],
   clearAnswers: () => set({ answers: [] }),
   setAnswer: (question, answerCode, answerValue) =>
     set((state) => {
