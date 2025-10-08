@@ -7,9 +7,11 @@ import { questionnaire } from "@/utils/questionnaire";
 import { answeredQuestionsCount, getResults } from "@/utils/utils";
 import { ResponsiveBar as BarChart } from "@nivo/bar";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Result() {
-  const { answers } = useQuestionnaire();
+  const { push } = useRouter();
+  const { answers, clearAnswers } = useQuestionnaire();
   const results = getResults(answers).map((r) => ({
     ...r,
     icon: codeToIcon(r.code),
@@ -84,6 +86,18 @@ export default function Result() {
         <Link href="/more">
           <Button>En savoir plus sur les 8 intelligences</Button>
         </Link>
+      </div>
+
+      <div className="mb-8 text-center">
+        <Button
+          variant={"secondary"}
+          onClick={() => {
+            clearAnswers();
+            push("/questionnaire");
+          }}
+        >
+          Recommencer le questionnaire
+        </Button>
       </div>
 
       <div className="mb-8 text-center">
