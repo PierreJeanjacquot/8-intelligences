@@ -33,6 +33,10 @@ function QuestionCard({
   hasError?: boolean;
 }) {
   const rootId = `opt-${id}`;
+  const collator = new Intl.Collator("fr", { sensitivity: "base" });
+  const alphaSortedOptions = options.sort((a, b) =>
+    collator.compare(a.answer, b.answer)
+  );
   return (
     <div className="flex m-auto basis-full">
       <div className="items-center justify-center">
@@ -40,21 +44,23 @@ function QuestionCard({
           <h2 className="mb-8 text-xl">{question}</h2>
         </div>
         <div>
-          {options.map((option, index) => (
-            <div key={index} className="flex items-center space-x-2 mb-4">
-              <Checkbox
-                value={option.code}
-                id={`${rootId}-${option.code}`}
-                checked={choices?.[option.code]}
-                onCheckedChange={(checked) => {
-                  toggleChoice(option.code, checked === true);
-                }}
-              />
-              <Label htmlFor={`${rootId}-${option.code}`}>
-                {option.answer}
-              </Label>
-            </div>
-          ))}
+          {alphaSortedOptions
+            .sort((a, b) => collator.compare(a.answer, b.answer))
+            .map((option, index) => (
+              <div key={index} className="flex items-center space-x-2 mb-4">
+                <Checkbox
+                  value={option.code}
+                  id={`${rootId}-${option.code}`}
+                  checked={choices?.[option.code]}
+                  onCheckedChange={(checked) => {
+                    toggleChoice(option.code, checked === true);
+                  }}
+                />
+                <Label htmlFor={`${rootId}-${option.code}`}>
+                  {option.answer}
+                </Label>
+              </div>
+            ))}
         </div>
         <p
           className={`mt-4 text-sm text-muted-foreground text-center ${
