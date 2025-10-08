@@ -27,7 +27,7 @@ function QuestionCard({
 }: {
   id: number;
   question: string;
-  options: { label: string; value: IntelligenceCode }[];
+  options: { answer: string; code: IntelligenceCode }[];
   toggleChoice: (value: IntelligenceCode, checked: boolean) => void;
   choices?: Record<IntelligenceCode, boolean | undefined>;
   hasError?: boolean;
@@ -43,15 +43,15 @@ function QuestionCard({
           {options.map((option, index) => (
             <div key={index} className="flex items-center space-x-2 mb-4">
               <Checkbox
-                value={option.value}
-                id={`${rootId}-${option.value}`}
-                checked={choices?.[option.value]}
+                value={option.code}
+                id={`${rootId}-${option.code}`}
+                checked={choices?.[option.code]}
                 onCheckedChange={(checked) => {
-                  toggleChoice(option.value, checked === true);
+                  toggleChoice(option.code, checked === true);
                 }}
               />
-              <Label htmlFor={`${rootId}-${option.value}`}>
-                {option.label}
+              <Label htmlFor={`${rootId}-${option.code}`}>
+                {option.answer}
               </Label>
             </div>
           ))}
