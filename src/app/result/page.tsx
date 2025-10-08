@@ -56,6 +56,12 @@ export default function Result() {
       </div>
 
       <div className="mb-8 text-center">
+        <Link href="/more">
+          <Button>En savoir plus sur les 8 intelligences</Button>
+        </Link>
+      </div>
+
+      <div className="mb-8 text-center">
         <Link href="/questionnaire">
           <Button>Retour au questionnaire</Button>
         </Link>
