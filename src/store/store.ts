@@ -1,4 +1,5 @@
 import { IntelligenceCode } from "@/types/types";
+import { questionnaire } from "@/utils/questionnaire";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -6,12 +7,15 @@ type Answer = Record<IntelligenceCode, boolean | undefined>;
 
 interface QuestionnaireState {
   answers: Answer[];
-  clearAnswers: () => void;
   setAnswer: (
     question: number,
     answerCode: IntelligenceCode,
     answerValue: boolean
   ) => void;
+  clearAnswers: () => void;
+  currentQuestionIndex: number;
+  setCurrentQuestionIndex: (question: number) => void;
+  clearCurrentQuestionIndex: () => void;
 }
 
 const isValidAnswer = (answer: unknown) => {
@@ -33,12 +37,22 @@ const isValidAnswer = (answer: unknown) => {
   );
 };
 
+const isValidQuestionIndex = (number: unknown) => {
+  return (
+    typeof number === "number" &&
+    Number.isInteger(number) &&
+    number >= 0 &&
+    number <= questionnaire.length // last valid question is length (for results page)
+  );
+};
+
 const isValidQuestionnaireState = (state: unknown) => {
   if (!state || typeof state !== "object") return false;
   const s = state as QuestionnaireState;
   return (
     Array.isArray(s.answers) &&
-    s.answers.every((answer) => isValidAnswer(answer))
+    s.answers.every((answer) => isValidAnswer(answer)) &&
+    isValidQuestionIndex(s.currentQuestionIndex)
   );
 };
 
@@ -46,7 +60,7 @@ export const useQuestionnaire = create<QuestionnaireState>()(
   persist(
     (set) => ({
       answers: [],
-      clearAnswers: () => set({ answers: [] }),
+      currentQuestionIndex: 0,
       setAnswer: (question, answerCode, answerValue) =>
         set((state) => {
           const answers = [...state.answers];
@@ -56,6 +70,10 @@ export const useQuestionnaire = create<QuestionnaireState>()(
           };
           return { answers };
         }),
+      clearAnswers: () => set({ answers: [] }),
+      setCurrentQuestionIndex: (question) =>
+        set({ currentQuestionIndex: question }),
+      clearCurrentQuestionIndex: () => set({ currentQuestionIndex: 0 }),
     }),
     {
       name: "questionnaire-storage",

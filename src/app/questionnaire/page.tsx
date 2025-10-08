@@ -77,27 +77,26 @@ function QuestionCard({
 export default function Questionnaire() {
   const canScrollNext = useRef(false);
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-  const { setAnswer, answers } = useQuestionnaire();
+
+  const { setAnswer, answers, currentQuestionIndex, setCurrentQuestionIndex } =
+    useQuestionnaire();
 
   useEffect(() => {
     if (!api) {
       return;
     }
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrentQuestionIndex(api.selectedScrollSnap());
     api.canScrollNext = () => canScrollNext.current;
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrentQuestionIndex(api.selectedScrollSnap());
     });
-  }, [api]);
+  }, [api, setCurrentQuestionIndex]);
 
-  const questionsCount = count - 1; // last slide is the end screen
-  const showProgress = current <= questionsCount;
-  // const showProgress = false;
+  const questionsCount = questionnaire.length;
+  const showProgress = currentQuestionIndex < questionsCount;
+
   const currentQuestionSelectedAnswer = selectedChoicesCount(
-    answers[current - 1]
+    answers[currentQuestionIndex]
   );
   const currentQuestionAnswered =
     currentQuestionSelectedAnswer > 0 && currentQuestionSelectedAnswer <= 3;
@@ -116,15 +115,20 @@ export default function Questionnaire() {
       <Carousel
         className="w-full"
         setApi={setApi}
-        opts={{ watchDrag: false }} // disable drag to force user to answer
+        opts={{
+          watchDrag: false, // disable drag to force user to answer
+          startIndex: currentQuestionIndex, // restore current question on reload
+        }}
         preventNext={!currentQuestionAnswered} // disable next if current question not answered
       >
         {showProgress && (
           <div className="w-full mb-4">
-            <Progress value={(current / questionsCount) * 100} />
+            <Progress
+              value={((currentQuestionIndex + 1) / questionsCount) * 100}
+            />
             <div className="flex justify-between mt-2 text-sm text-muted-foreground">
               <span>
-                question {current} / {questionsCount}
+                question {currentQuestionIndex + 1} / {questionsCount}
               </span>
             </div>
           </div>
@@ -162,7 +166,7 @@ export default function Questionnaire() {
             <div className="flex justify-between mt-4 mb-2">
               <Button
                 variant="secondary"
-                disabled={current === 1}
+                disabled={currentQuestionIndex === 0}
                 onClick={() => api?.scrollPrev()}
               >
                 Précédent

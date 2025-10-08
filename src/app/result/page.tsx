@@ -11,7 +11,8 @@ import { useRouter } from "next/navigation";
 
 export default function Result() {
   const { push } = useRouter();
-  const { answers, clearAnswers } = useQuestionnaire();
+  const { answers, clearAnswers, clearCurrentQuestionIndex } =
+    useQuestionnaire();
   const results = getResults(answers).map((r) => ({
     ...r,
     icon: codeToIcon(r.code),
@@ -93,6 +94,7 @@ export default function Result() {
           variant={"secondary"}
           onClick={() => {
             clearAnswers();
+            clearCurrentQuestionIndex();
             push("/questionnaire");
           }}
         >
@@ -101,9 +103,15 @@ export default function Result() {
       </div>
 
       <div className="mb-8 text-center">
-        <Link href="/questionnaire">
-          <Button variant={"secondary"}>Retour au questionnaire</Button>
-        </Link>
+        <Button
+          variant={"secondary"}
+          onClick={() => {
+            clearCurrentQuestionIndex();
+            push("/questionnaire");
+          }}
+        >
+          Retour au questionnaire
+        </Button>
       </div>
     </div>
   );
