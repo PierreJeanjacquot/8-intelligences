@@ -28,13 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-4">
+        <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-dvh gap-4">
           <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b shadow-sm p-4">
             <h1 className="text-2xl font-bold text-center">
               Les 8 intelligences
             </h1>
           </header>
-          <main className="w-sm max-w-dvw sm:max-w-sm m-auto  overflow-hidden flex items-center justify-center p-4">
+          <main className="w-sm max-w-dvw sm:max-w-sm m-auto overflow-hidden flex items-center justify-center p-4">
             {children}
           </main>
           <footer className="flex flex-wrap items-center justify-center max-w-full p-4 sm:pb-10">
