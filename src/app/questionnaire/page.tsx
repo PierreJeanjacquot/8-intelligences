@@ -51,7 +51,7 @@ function QuestionCard({
                 <Checkbox
                   value={option.code}
                   id={`${rootId}-${option.code}`}
-                  checked={choices?.[option.code]}
+                  checked={choices?.[option.code] || false}
                   onCheckedChange={(checked) => {
                     toggleChoice(option.code, checked === true);
                   }}
