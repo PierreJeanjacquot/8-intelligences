@@ -45,6 +45,7 @@ export default function RootLayout({
                 rel="noreferrer"
               >
                 <Image
+                  priority={true}
                   src="/logo-AM-trans-322x84.png"
                   alt="Arts et Métiers"
                   width={322 / 2}
