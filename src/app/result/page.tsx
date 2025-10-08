@@ -3,8 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useQuestionnaire } from "@/store/store";
 import { codeToColor, codeToIcon } from "@/utils/icons";
-import { questionnaire } from "@/utils/questionnaire";
-import { answeredQuestionsCount, getResults } from "@/utils/utils";
+import { getResults, isQuestionnaireFinished } from "@/utils/utils";
 import { ResponsiveBar as BarChart } from "@nivo/bar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -17,10 +16,8 @@ export default function Result() {
     ...r,
     icon: codeToIcon(r.code),
   }));
-  const answeredCount = answeredQuestionsCount(answers);
-  const questionCount = questionnaire.length;
 
-  if (answeredCount < questionCount) {
+  if (!isQuestionnaireFinished(answers)) {
     return (
       <div className="text-center">
         <p className="mb-4">
@@ -110,7 +107,7 @@ export default function Result() {
             push("/questionnaire");
           }}
         >
-          Retour au questionnaire
+          Revoir mes réponses
         </Button>
       </div>
     </div>

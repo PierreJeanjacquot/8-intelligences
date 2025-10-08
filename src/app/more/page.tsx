@@ -5,8 +5,13 @@ import { Button } from "@/components/ui/button";
 import { IntelligenceCode } from "@/types/types";
 import { codeToIcon } from "@/utils/icons";
 import { intelligenceCodeMap } from "@/utils/intelligences";
+import { useQuestionnaire } from "@/store/store";
+import { isQuestionnaireFinished } from "@/utils/utils";
 
 export default function More() {
+  const { answers } = useQuestionnaire();
+  const isFinished = isQuestionnaireFinished(answers);
+
   return (
     <div className="">
       <div className="mb-8">
@@ -49,9 +54,20 @@ export default function More() {
           )}
         </ul>
       </div>
+
+      {isFinished ? (
+        <div className="mb-8 text-center">
+          <Link href="/result">
+            <Button>Retour à mes résultats</Button>
+          </Link>
+        </div>
+      ) : null}
+
       <div className="mb-8 text-center">
         <Link href="/">
-          <Button>Retour à l&apos;accueil</Button>
+          <Button variant={isFinished ? "secondary" : "default"}>
+            Retour à l&apos;accueil
+          </Button>
         </Link>
       </div>
     </div>

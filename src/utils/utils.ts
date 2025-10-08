@@ -1,5 +1,6 @@
 import { IntelligenceCode } from "@/types/types";
 import { intelligenceCodeMap } from "./intelligences";
+import { questionnaire } from "./questionnaire";
 
 export function selectedChoicesCount(
   choices: Record<IntelligenceCode, boolean | undefined> | undefined
@@ -14,6 +15,12 @@ export function answeredQuestionsCount(
   answers: (Record<IntelligenceCode, boolean | undefined> | undefined)[]
 ) {
   return answers.filter((a) => a && Object.values(a).some((v) => v)).length;
+}
+
+export function isQuestionnaireFinished(
+  answers: (Record<IntelligenceCode, boolean | undefined> | undefined)[]
+) {
+  return answeredQuestionsCount(answers) >= questionnaire.length;
 }
 
 export function codeToLabel(code: IntelligenceCode) {
